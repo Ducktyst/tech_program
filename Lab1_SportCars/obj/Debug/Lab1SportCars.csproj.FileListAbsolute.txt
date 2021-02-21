@@ -1,0 +1,10 @@
+C:\Users\user\Downloads\Учеба и работа\Технологии программирования\Лабораторные работы\Lab1_SportCars\Lab1_SportCars\obj\Debug\Lab1SportCars.csprojAssemblyReference.cache
+C:\Users\user\Downloads\Учеба и работа\Технологии программирования\Лабораторные работы\Lab1_SportCars\Lab1_SportCars\obj\Debug\Lab1_SportCars.Properties.Resources.resources
+C:\Users\user\Downloads\Учеба и работа\Технологии программирования\Лабораторные работы\Lab1_SportCars\Lab1_SportCars\obj\Debug\Lab1SportCars.csproj.GenerateResource.cache
+C:\Users\user\Downloads\Учеба и работа\Технологии программирования\Лабораторные работы\Lab1_SportCars\Lab1_SportCars\obj\Debug\Lab1SportCars.csproj.CoreCompileInputs.cache
+C:\Users\user\Downloads\Учеба и работа\Технологии программирования\Лабораторные работы\Lab1_SportCars\Lab1_SportCars\bin\Debug\Lab1_SportCars.exe.config
+C:\Users\user\Downloads\Учеба и работа\Технологии программирования\Лабораторные работы\Lab1_SportCars\Lab1_SportCars\bin\Debug\Lab1_SportCars.exe
+C:\Users\user\Downloads\Учеба и работа\Технологии программирования\Лабораторные работы\Lab1_SportCars\Lab1_SportCars\bin\Debug\Lab1_SportCars.pdb
+C:\Users\user\Downloads\Учеба и работа\Технологии программирования\Лабораторные работы\Lab1_SportCars\Lab1_SportCars\obj\Debug\Lab1_SportCars.exe
+C:\Users\user\Downloads\Учеба и работа\Технологии программирования\Лабораторные работы\Lab1_SportCars\Lab1_SportCars\obj\Debug\Lab1_SportCars.pdb
+C:\Users\user\Downloads\Учеба и работа\Технологии программирования\Лабораторные работы\Lab1_SportCars\Lab1_SportCars\obj\Debug\Lab1_SportCars.FormCar.resources
