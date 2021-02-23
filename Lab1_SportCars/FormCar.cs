@@ -40,8 +40,12 @@ namespace Lab1_SportCars
         {
             Random rnd = new Random();
             _car = new SportCar();
-            _car.Init(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow, true, true, true, true);
-            _car.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxCars.Width, pictureBoxCars.Height);
+            bool sportLine = false;
+            if (rnd.Next(2) % 2 == 0) {
+                sportLine = true;
+            }
+            _car.Init(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow, sportLine, true, true, true);
+            _car.SetPosition(rnd.Next(10, 100), rnd.Next(100, 200), pictureBoxCars.Width, pictureBoxCars.Height);
             Draw();
         }
 

@@ -51,7 +51,7 @@ namespace Lab1_SportCars
             // 
             this.buttonCreate.Location = new System.Drawing.Point(12, 12);
             this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(75, 23);
+            this.buttonCreate.Size = new System.Drawing.Size(89, 23);
             this.buttonCreate.TabIndex = 2;
             this.buttonCreate.Text = "Создать";
             this.buttonCreate.UseVisualStyleBackColor = true;
@@ -106,7 +106,7 @@ namespace Lab1_SportCars
             this.buttonRight.UseVisualStyleBackColor = true;
             this.buttonRight.Click += new System.EventHandler(this.ButtonMove_Click);
             // 
-            // FormCar
+            // FormTransport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -117,7 +117,7 @@ namespace Lab1_SportCars
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.pictureBoxCars);
-            this.Name = "FormCar";
+            this.Name = "FormTransport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Автомобиль";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCars)).EndInit();

@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cruiser.cs" />
+    <Compile Include="CruiserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CruiserForm.Designer.cs">
+      <DependentUpon>CruiserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Direction.cs" />
     <Compile Include="FormCar.cs">
       <SubType>Form</SubType>
@@ -56,6 +63,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SportCar.cs" />
+    <EmbeddedResource Include="CruiserForm.resx">
+      <DependentUpon>CruiserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormCar.resx">
       <DependentUpon>FormCar.cs</DependentUpon>
     </EmbeddedResource>

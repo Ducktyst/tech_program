@@ -8,3 +8,4 @@ C:\Users\user\Downloads\Учеба и работа\Технологии прог
 C:\Users\user\Downloads\Учеба и работа\Технологии программирования\Лабораторные работы\Lab1_SportCars\Lab1_SportCars\obj\Debug\Lab1_SportCars.exe
 C:\Users\user\Downloads\Учеба и работа\Технологии программирования\Лабораторные работы\Lab1_SportCars\Lab1_SportCars\obj\Debug\Lab1_SportCars.pdb
 C:\Users\user\Downloads\Учеба и работа\Технологии программирования\Лабораторные работы\Lab1_SportCars\Lab1_SportCars\obj\Debug\Lab1_SportCars.FormCar.resources
+C:\Users\user\Downloads\Учеба и работа\Технологии программирования\Лабораторные работы\Lab1_SportCars\Lab1_SportCars\obj\Debug\Lab1_SportCars.CruiserForm.resources
