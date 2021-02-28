@@ -1,7 +1,7 @@
 ﻿
-namespace Lab1_SportCars
+namespace WindowsFormsTransport
 {
-    partial class CruiserForm
+    partial class FormShip
     {
         /// <summary>
         /// Required designer variable.
@@ -29,30 +29,31 @@ namespace Lab1_SportCars
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonCreateCruiser = new System.Windows.Forms.Button();
+            this.buttonCreateShip = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.buttonCreateCruiser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonCreateCruiser
+            // buttonCreateShip
             // 
-            this.buttonCreateCruiser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCreateCruiser.Location = new System.Drawing.Point(24, 13);
-            this.buttonCreateCruiser.Name = "buttonCreateCruiser";
-            this.buttonCreateCruiser.Size = new System.Drawing.Size(75, 23);
-            this.buttonCreateCruiser.TabIndex = 0;
-            this.buttonCreateCruiser.Text = "Создать Крейсер";
-            this.buttonCreateCruiser.UseVisualStyleBackColor = true;
-            this.buttonCreateCruiser.Click += new System.EventHandler(this.ButtonСreate_Click);
+            this.buttonCreateShip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCreateShip.Location = new System.Drawing.Point(24, 13);
+            this.buttonCreateShip.Name = "buttonCreateShip";
+            this.buttonCreateShip.Size = new System.Drawing.Size(123, 23);
+            this.buttonCreateShip.TabIndex = 0;
+            this.buttonCreateShip.Text = "Создать Корабль";
+            this.buttonCreateShip.UseVisualStyleBackColor = true;
+            this.buttonCreateShip.Click += new System.EventHandler(this.buttonCreateBaseCruiser_Click);
             // 
             // buttonRight
             // 
             this.buttonRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRight.BackgroundImage = global::Lab1_SportCars.Properties.Resources.rightArrow;
+            this.buttonRight.BackgroundImage = global::WindowsFormsTransport.Properties.Resources.rightArrow;
             this.buttonRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonRight.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.buttonRight.Location = new System.Drawing.Point(750, 406);
@@ -65,7 +66,7 @@ namespace Lab1_SportCars
             // buttonUp
             // 
             this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUp.BackgroundImage = global::Lab1_SportCars.Properties.Resources.upArrow;
+            this.buttonUp.BackgroundImage = global::WindowsFormsTransport.Properties.Resources.upArrow;
             this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonUp.Location = new System.Drawing.Point(714, 370);
             this.buttonUp.Name = "buttonUp";
@@ -77,7 +78,7 @@ namespace Lab1_SportCars
             // buttonDown
             // 
             this.buttonDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDown.BackgroundImage = global::Lab1_SportCars.Properties.Resources.downArrow;
+            this.buttonDown.BackgroundImage = global::WindowsFormsTransport.Properties.Resources.downArrow;
             this.buttonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonDown.Location = new System.Drawing.Point(714, 406);
             this.buttonDown.Name = "buttonDown";
@@ -89,7 +90,7 @@ namespace Lab1_SportCars
             // buttonLeft
             // 
             this.buttonLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLeft.BackgroundImage = global::Lab1_SportCars.Properties.Resources.leftArrow;
+            this.buttonLeft.BackgroundImage = global::WindowsFormsTransport.Properties.Resources.leftArrow;
             this.buttonLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonLeft.Location = new System.Drawing.Point(678, 406);
             this.buttonLeft.Name = "buttonLeft";
@@ -107,18 +108,30 @@ namespace Lab1_SportCars
             this.pictureBox.TabIndex = 11;
             this.pictureBox.TabStop = false;
             // 
-            // CruiserForm
+            // buttonCreateCruiser
+            // 
+            this.buttonCreateCruiser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCreateCruiser.Location = new System.Drawing.Point(168, 13);
+            this.buttonCreateCruiser.Name = "buttonCreateCruiser";
+            this.buttonCreateCruiser.Size = new System.Drawing.Size(137, 23);
+            this.buttonCreateCruiser.TabIndex = 12;
+            this.buttonCreateCruiser.Text = "Создать Крейсер";
+            this.buttonCreateCruiser.UseVisualStyleBackColor = true;
+            this.buttonCreateCruiser.Click += new System.EventHandler(this.buttonCreateCruiser_Click);
+            // 
+            // FormShip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonCreateCruiser);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonLeft);
-            this.Controls.Add(this.buttonCreateCruiser);
+            this.Controls.Add(this.buttonCreateShip);
             this.Controls.Add(this.pictureBox);
-            this.Name = "CruiserForm";
+            this.Name = "FormShip";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Крейсер";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
@@ -128,11 +141,12 @@ namespace Lab1_SportCars
 
         #endregion
 
-        private System.Windows.Forms.Button buttonCreateCruiser;
+        private System.Windows.Forms.Button buttonCreateShip;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.Button buttonCreateCruiser;
     }
 }

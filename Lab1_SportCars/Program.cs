@@ -1,8 +1,7 @@
-﻿using Lab1_SportCars;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
-namespace Lab1SportCars
+namespace WindowsFormsTransport
 {
     static class Program
     {
@@ -14,7 +13,7 @@ namespace Lab1SportCars
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CruiserForm());
+            Application.Run(new FormShip());
         }
     }
 }

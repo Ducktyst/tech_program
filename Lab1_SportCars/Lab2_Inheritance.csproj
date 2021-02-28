@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{1D4C01F5-2ECE-4BBC-A936-906D0A85BA8D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Lab1_SportCars</RootNamespace>
-    <AssemblyName>Lab1_SportCars</AssemblyName>
+    <RootNamespace>WindowsFormsTransport</RootNamespace>
+    <AssemblyName>WindowsFormsTransport</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -47,27 +47,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cruiser.cs" />
-    <Compile Include="CruiserForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CruiserForm.Designer.cs">
-      <DependentUpon>CruiserForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Direction.cs" />
-    <Compile Include="FormCar.cs">
+    <Compile Include="FormShip.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCar.Designer.cs">
-      <DependentUpon>FormCar.cs</DependentUpon>
+    <Compile Include="FormShip.Designer.cs">
+      <DependentUpon>FormShip.cs</DependentUpon>
     </Compile>
+    <Compile Include="ITransport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SportCar.cs" />
-    <EmbeddedResource Include="CruiserForm.resx">
-      <DependentUpon>CruiserForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormCar.resx">
-      <DependentUpon>FormCar.cs</DependentUpon>
+    <Compile Include="WarShip.cs" />
+    <Compile Include="Vehicle.cs" />
+    <EmbeddedResource Include="FormShip.resx">
+      <DependentUpon>FormShip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

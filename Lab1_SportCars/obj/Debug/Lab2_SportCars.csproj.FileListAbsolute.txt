@@ -1,0 +1,10 @@
+H:\Папка Алексей Кандалинцев\Технологии программирования\Лабораторные работы\Lab2_Inheritance\Lab1_SportCars\obj\Debug\Lab2_SportCars.csprojAssemblyReference.cache
+H:\Папка Алексей Кандалинцев\Технологии программирования\Лабораторные работы\Lab2_Inheritance\Lab1_SportCars\obj\Debug\WindowsFormsTransport.FormShip.resources
+H:\Папка Алексей Кандалинцев\Технологии программирования\Лабораторные работы\Lab2_Inheritance\Lab1_SportCars\obj\Debug\WindowsFormsTransport.Properties.Resources.resources
+H:\Папка Алексей Кандалинцев\Технологии программирования\Лабораторные работы\Lab2_Inheritance\Lab1_SportCars\obj\Debug\Lab2_SportCars.csproj.GenerateResource.cache
+H:\Папка Алексей Кандалинцев\Технологии программирования\Лабораторные работы\Lab2_Inheritance\Lab1_SportCars\obj\Debug\Lab2_SportCars.csproj.CoreCompileInputs.cache
+H:\Папка Алексей Кандалинцев\Технологии программирования\Лабораторные работы\Lab2_Inheritance\Lab1_SportCars\bin\Debug\WindowsFormsTransport.exe.config
+H:\Папка Алексей Кандалинцев\Технологии программирования\Лабораторные работы\Lab2_Inheritance\Lab1_SportCars\bin\Debug\WindowsFormsTransport.exe
+H:\Папка Алексей Кандалинцев\Технологии программирования\Лабораторные работы\Lab2_Inheritance\Lab1_SportCars\bin\Debug\WindowsFormsTransport.pdb
+H:\Папка Алексей Кандалинцев\Технологии программирования\Лабораторные работы\Lab2_Inheritance\Lab1_SportCars\obj\Debug\WindowsFormsTransport.exe
+H:\Папка Алексей Кандалинцев\Технологии программирования\Лабораторные работы\Lab2_Inheritance\Lab1_SportCars\obj\Debug\WindowsFormsTransport.pdb

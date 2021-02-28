@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31005.135
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab1SportCars", "Lab1_SportCars\Lab1SportCars.csproj", "{1D4C01F5-2ECE-4BBC-A936-906D0A85BA8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab2_Inheritance", "Lab1_SportCars\Lab2_Inheritance.csproj", "{1D4C01F5-2ECE-4BBC-A936-906D0A85BA8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
