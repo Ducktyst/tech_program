@@ -15,18 +15,29 @@ namespace WindowsFormsTransport
         /// </summary>
         public bool BackSpoiler { private set; get; }
         /// <summary>
-        /// Призна наличия гоночной линии
+        /// Признак наличия гоночной линии
         /// </summary>
         public bool SportLine { private set; get; }
+        /// <summary>
+        /// Признак наличия пушки
+        /// </summary>
+        public bool IsWithGuns { private set; get; }
+        /// <summary>
+        /// Признак наличия вертолетной площадки
+        /// </summary>
+        public bool IsWithHelicopter { private set; get; }
 
-        public Cruiser(int maxSpeed, float weight, Color mainColor, Color dopColor, bool backSpoiler, bool sportLine) : base(maxSpeed, weight, mainColor, 100, 60)
+
+        public Cruiser(int maxSpeed, float weight, Color mainColor, Color dopColor, bool isWithGuns, bool isWithHrlicopter) : base(maxSpeed, weight, mainColor, 100, 60)
         {
+
+            // Для крейсера добавить вертолетную прощадку и пушки
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
             DopColor = dopColor;
-            BackSpoiler = backSpoiler;
-            SportLine = sportLine;
+            IsWithGuns = isWithGuns;
+            IsWithHelicopter = isWithHrlicopter;
         }
 
         /// <summary>
@@ -98,48 +109,34 @@ namespace WindowsFormsTransport
             base.DrawTransport(g);
             Pen pen = new Pen(Color.Black);
 
-            // Задний спойлер
-            if (BackSpoiler)
+
+            // Орудия
+            if (IsWithGuns)
             {
                 Brush dopBrush = new SolidBrush(DopColor);
-                int backSpoilerWidth = 10;
-                int backspoilerHeight = _shipHeight - 10;
-                int backSpoilerX = Convert.ToInt32(_startPosX.Value);
-                int backSpoilerY = Convert.ToInt32(_startPosY.Value + _shipHeight / 2 - backspoilerHeight / 2);
-                Point backSpoilerLeftUpper = new Point(backSpoilerX, backSpoilerY);
-                Point backSpoilerRightBottom = new Point(backSpoilerX + backSpoilerWidth, backSpoilerY + backspoilerHeight);
+                int gunLength = 20;
+                int gunHeight = 4;
+                int gunX = Convert.ToInt32(_startPosX) + Convert.ToInt32(_shipWidth / 2);
+                int gunY = Convert.ToInt32(_startPosY) + Convert.ToInt32(_shipHeight / 2) - gunHeight/2;
 
-                Rectangle backSpoiler = new Rectangle(backSpoilerX, backSpoilerY, backSpoilerWidth, backspoilerHeight);
-                g.FillRectangle(dopBrush, backSpoiler);
-                g.DrawRectangle(pen, backSpoiler);
+                g.FillRectangle(dopBrush, gunX, gunY, gunLength, gunHeight);
+                g.DrawRectangle(pen, gunX, gunY, gunLength, gunHeight);
             }
 
-            // Спортивные полосы
-            if (SportLine)
+            if (IsWithHelicopter)
             {
                 Brush dopBrush = new SolidBrush(DopColor);
-                int sportLineWidth = Convert.ToInt32(sideLength - 20);
-                int sportLineHeight = 6;
+                int helicopterDiameter = 30;
 
-                int sportLineX = Convert.ToInt32(_startPosX + 15);
+                float helicopterX = Convert.ToInt32(_startPosX) + 10;
+                float helicopterY = Convert.ToInt32(_startPosY) + _shipHeight / 2 - helicopterDiameter / 2;
+                g.FillEllipse(dopBrush, helicopterX, helicopterY, helicopterDiameter, helicopterDiameter);
+                g.DrawRectangle(pen, helicopterX, helicopterY, helicopterDiameter, helicopterDiameter);
 
-                int upperSportLineY = Convert.ToInt32(_startPosY);
-                int lowerSportLineY = Convert.ToInt32(_startPosY + _shipHeight - sportLineHeight);
-
-                Point upperSportLineStart = new Point(sportLineX, upperSportLineY);
-                Point upperSportLineEnd = new Point(sportLineX + sportLineWidth, upperSportLineY + sportLineHeight);
-                Rectangle upperSpoiler = new Rectangle(upperSportLineStart, new Size(sportLineWidth, sportLineHeight));
-
-                Point lowerSportLineStart = new Point(sportLineX, lowerSportLineY);
-                Point lowerSportLineEnd = new Point(sportLineX + sportLineWidth, lowerSportLineY + sportLineHeight);
-                Rectangle lowerSpoiler = new Rectangle(lowerSportLineStart, new Size(sportLineWidth, sportLineHeight));
-
-                g.FillRectangle(dopBrush, upperSpoiler);
-                g.DrawRectangle(pen, upperSpoiler);
-
-                g.FillRectangle(dopBrush, lowerSpoiler);
-                g.DrawRectangle(pen, lowerSpoiler);
+                Brush blackBrush = new SolidBrush(Color.Black);
+                g.DrawString("H", new Font(FontFamily.GenericSansSerif, 12.0F, FontStyle.Bold), blackBrush, helicopterX, helicopterY);
             }
+
         }
     }
 }
