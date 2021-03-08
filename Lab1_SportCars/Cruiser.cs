@@ -1,26 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsTransport
 {
     public class Cruiser : WarShip
     {
         public Color DopColor { private set; get; }
-        /// <summary>
-        /// Признак наличия заднего спойлера
-        /// </summary>
-        public bool BackSpoiler { private set; get; }
-        /// <summary>
-        /// Признак наличия гоночной линии
-        /// </summary>
-        public bool SportLine { private set; get; }
-        /// <summary>
-        /// Признак наличия пушки
-        /// </summary>
+       
         public bool IsWithGuns { private set; get; }
         /// <summary>
         /// Признак наличия вертолетной площадки
@@ -48,13 +34,13 @@ namespace WindowsFormsTransport
         /// <param name="mainColor">Основной цвет</param>
         /// <param name="shipWidth">Ширина отрисовки корабля</param>
         /// <param name="shipHeight">Высота отрисовки корабля</param>
-        protected Cruiser(int maxSpeed, float weight, Color mainColor, int shipWidth, int shipHeight) : 
-            base (maxSpeed, weight, mainColor, shipWidth, shipHeight)
+        protected Cruiser(int maxSpeed, float weight, Color mainColor, int shipWidth, int shipHeight) :
+            base(maxSpeed, weight, mainColor, shipWidth, shipHeight)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
-         }
+        }
 
         /// <summary>
         /// Изменение направления пермещения
@@ -117,7 +103,7 @@ namespace WindowsFormsTransport
                 int gunLength = 20;
                 int gunHeight = 4;
                 int gunX = Convert.ToInt32(_startPosX) + Convert.ToInt32(_shipWidth / 2);
-                int gunY = Convert.ToInt32(_startPosY) + Convert.ToInt32(_shipHeight / 2) - gunHeight/2;
+                int gunY = Convert.ToInt32(_startPosY) + Convert.ToInt32(_shipHeight / 2) - gunHeight / 2;
 
                 g.FillRectangle(dopBrush, gunX, gunY, gunLength, gunHeight);
                 g.DrawRectangle(pen, gunX, gunY, gunLength, gunHeight);

@@ -29,26 +29,13 @@ namespace WindowsFormsTransport
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonCreateShip = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.buttonCreateCruiser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // buttonCreateShip
-            // 
-            this.buttonCreateShip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCreateShip.Location = new System.Drawing.Point(24, 13);
-            this.buttonCreateShip.Name = "buttonCreateShip";
-            this.buttonCreateShip.Size = new System.Drawing.Size(123, 23);
-            this.buttonCreateShip.TabIndex = 0;
-            this.buttonCreateShip.Text = "Создать Корабль";
-            this.buttonCreateShip.UseVisualStyleBackColor = true;
-            this.buttonCreateShip.Click += new System.EventHandler(this.buttonCreateBaseCruiser_Click);
             // 
             // buttonRight
             // 
@@ -108,28 +95,15 @@ namespace WindowsFormsTransport
             this.pictureBox.TabIndex = 11;
             this.pictureBox.TabStop = false;
             // 
-            // buttonCreateCruiser
-            // 
-            this.buttonCreateCruiser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCreateCruiser.Location = new System.Drawing.Point(168, 13);
-            this.buttonCreateCruiser.Name = "buttonCreateCruiser";
-            this.buttonCreateCruiser.Size = new System.Drawing.Size(137, 23);
-            this.buttonCreateCruiser.TabIndex = 12;
-            this.buttonCreateCruiser.Text = "Создать Крейсер";
-            this.buttonCreateCruiser.UseVisualStyleBackColor = true;
-            this.buttonCreateCruiser.Click += new System.EventHandler(this.buttonCreateCruiser_Click);
-            // 
             // FormShip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonCreateCruiser);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonLeft);
-            this.Controls.Add(this.buttonCreateShip);
             this.Controls.Add(this.pictureBox);
             this.Name = "FormShip";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -140,13 +114,10 @@ namespace WindowsFormsTransport
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonCreateShip;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.PictureBox pictureBox;
-        private System.Windows.Forms.Button buttonCreateCruiser;
     }
 }

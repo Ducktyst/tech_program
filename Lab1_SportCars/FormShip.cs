@@ -12,6 +12,13 @@ namespace WindowsFormsTransport
         {
             InitializeComponent();
         }
+
+        public void SetShip(ITransport ship)
+        {
+            _ship = ship;
+            Draw();
+        }
+
         /// <summary>
         /// Метод отрисовки т/с
         /// </summary>
@@ -23,33 +30,33 @@ namespace WindowsFormsTransport
             pictureBox.Image = bmp;
         }
 
-        /// <summary>
-        /// Создание объекта
-        /// </summary>
-        /// <param name="isBase">true - создаем объект базового класса, false - дочернего</param>
-        private void CreateShip(bool isBase)
-        {
-            Random rnd = new Random();
-            _ship = isBase ? new WarShip(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue) 
-                : new Cruiser(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow, true, true);
-            _ship.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBox.Width, pictureBox.Height);
-            Draw();
-        }
+/*        ///// <summary>
+        ///// Создание объекта
+        ///// </summary>
+        ///// <param name="isBase">true - создаем объект базового класса, false - дочернего</param>
+        //private void CreateShip(bool isBase)
+        //{
+        //    Random rnd = new Random();
+        //    _ship = isBase ? new WarShip(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue)
+        //        : new Cruiser(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Blue, Color.Yellow, true, true);
+        //    _ship.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBox.Width, pictureBox.Height);
+        //    Draw();
+        //}
 
-        /// <summary>
-        /// Обработка нажатия кнопки "Создать корабль"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonCreateBaseCruiser_Click(object sender, EventArgs e) => CreateShip(true);
+        ///// <summary>
+        ///// Обработка нажатия кнопки "Создать корабль"
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void buttonCreateBaseCruiser_Click(object sender, EventArgs e) => CreateShip(true);
 
 
-        /// <summary>
-        /// Обработка нажатия кнопки "Создать крейсер"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonCreateCruiser_Click(object sender, EventArgs e) => CreateShip(false);
+        ///// <summary>
+        ///// Обработка нажатия кнопки "Создать крейсер"
+        ///// </summary>
+        ///// <param name="sender"></param>
+        ///// <param name="e"></param>
+        //private void buttonCreateCruiser_Click(object sender, EventArgs e) => CreateShip(false);*/
 
         /// <summary>
         /// Обработка нажатия кнопок управления

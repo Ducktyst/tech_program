@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Cruiser.cs" />
     <Compile Include="Direction.cs" />
+    <Compile Include="FormBerth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBerth.Designer.cs">
+      <DependentUpon>FormBerth.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormShip.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,10 +61,14 @@
       <DependentUpon>FormShip.cs</DependentUpon>
     </Compile>
     <Compile Include="ITransport.cs" />
+    <Compile Include="Berth.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WarShip.cs" />
     <Compile Include="Vehicle.cs" />
+    <EmbeddedResource Include="FormBerth.resx">
+      <DependentUpon>FormBerth.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormShip.resx">
       <DependentUpon>FormShip.cs</DependentUpon>
     </EmbeddedResource>
