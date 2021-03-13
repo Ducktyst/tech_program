@@ -46,14 +46,14 @@ namespace WindowsFormsTransport
             this.pictureBoxBerth.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.pictureBoxBerth.Location = new System.Drawing.Point(0, 0);
             this.pictureBoxBerth.Name = "pictureBoxBerth";
-            this.pictureBoxBerth.Size = new System.Drawing.Size(596, 450);
+            this.pictureBoxBerth.Size = new System.Drawing.Size(660, 450);
             this.pictureBoxBerth.TabIndex = 0;
             this.pictureBoxBerth.TabStop = false;
             this.pictureBoxBerth.UseWaitCursor = true;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(640, 12);
+            this.button1.Location = new System.Drawing.Point(684, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(148, 35);
             this.button1.TabIndex = 1;
@@ -63,7 +63,7 @@ namespace WindowsFormsTransport
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(640, 53);
+            this.button2.Location = new System.Drawing.Point(684, 53);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 42);
             this.button2.TabIndex = 2;
@@ -76,16 +76,16 @@ namespace WindowsFormsTransport
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.maskedTextBox1);
-            this.groupBox1.Location = new System.Drawing.Point(640, 119);
+            this.groupBox1.Location = new System.Drawing.Point(684, 117);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(134, 87);
+            this.groupBox1.Size = new System.Drawing.Size(148, 87);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Забрать корабль";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(22, 39);
+            this.button3.Location = new System.Drawing.Point(22, 46);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 5;
@@ -113,7 +113,7 @@ namespace WindowsFormsTransport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(855, 450);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);

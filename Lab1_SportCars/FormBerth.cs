@@ -81,6 +81,8 @@ namespace WindowsFormsTransport
                     FormShip form = new FormShip();
                     form.SetShip(ship);
                     form.ShowDialog();
+                } else {
+                    MessageBox.Show("Нет места с таким номером. Допустимый диапазон от " + 0 + " до " + berth.lastPlaceIndex);
                 }
                 Draw();
             }

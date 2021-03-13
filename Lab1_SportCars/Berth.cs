@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace WindowsFormsTransport
 {
@@ -33,6 +34,8 @@ namespace WindowsFormsTransport
         /// </summary>
         private readonly int _placeSizeHeight = 80;
 
+        public readonly int lastPlaceIndex;
+
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -41,10 +44,11 @@ namespace WindowsFormsTransport
         public Berth(int picWidth, int picHeight)
         {
             int width = picWidth / _placeSizeWidth;
-            int height = picWidth / _placeSizeHeight;
+            int height = picHeight / _placeSizeHeight;
             _places = new T[width * height];
             _pictureWidth = picWidth;
             _pictureHeight = picHeight;
+            lastPlaceIndex = _places.Length - 1;
         }
 
         /// <summary>
@@ -65,15 +69,16 @@ namespace WindowsFormsTransport
                     // количество мест в вертикальном ряду
                     int colHeight = p._pictureHeight / p._placeSizeHeight;
                     // количество рядов
-                    int rowsCount = p._pictureWidth / p._placeSizeWidth;
+                    int colsCount = p._pictureWidth / p._placeSizeWidth;
                     // номер строки (ряда) с транспортом
-                    int rowNo = i / colHeight;
+                    int rowNo = i / colsCount;
                     // номер столбца (ряда) с транспортом
-                    int colNo = i - (rowNo * rowsCount);
+                    int colNo = i - (rowNo * colsCount);
 
                     int positionX = colNo * p._placeSizeWidth + p._placeSizeWidth / 5;
                     int positionY = rowNo * p._placeSizeHeight + p._placeSizeHeight / 5;
 
+                    
                     vehicle.SetPosition(positionX, positionY, p._placeSizeWidth, p._placeSizeHeight);
                     p._places[i] = vehicle;
                     shipParked = true;
@@ -92,7 +97,10 @@ namespace WindowsFormsTransport
         /// <returns></returns>
         public static T operator -(Berth<T> p, int index)
         {
-            // Прописать логику для вычитания
+            if (index < 0 || index > p._places.Length)
+            {
+                return null;
+            }
             T ship = p._places[index];
             p._places[index] = null;
             return ship;
@@ -128,19 +136,16 @@ namespace WindowsFormsTransport
                             i * _placeSizeWidth,
                             j * _placeSizeHeight, 
                             i * _placeSizeWidth + _placeSizeWidth / 2, 
-                            j * _placeSizeHeight
-                            );
+                            j * _placeSizeHeight);
                     }
-                    
-                    pen.Color = Color.Red;
+
                     // вертикальная полоса
                     g.DrawLine(
                         pen, 
                         i * _placeSizeWidth,
                         0, 
                         i * _placeSizeWidth, 
-                        (_pictureHeight / _placeSizeHeight) * _placeSizeHeight
-                        );
+                        (_pictureHeight / _placeSizeHeight) * _placeSizeHeight);
                 }
             }
     }
