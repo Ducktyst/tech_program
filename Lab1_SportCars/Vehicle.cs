@@ -35,11 +35,6 @@ namespace WindowsFormsTransport
         public Color MainColor { protected set; get; }
         public void SetPosition(int x, int y, int width, int height)
         {
-            if (x < 0 || y < 0 || x + width > _pictureHeight || y + height > _pictureWidth)
-            {
-                throw new Exception("Элемент выходит за границы окна");
-            }
-
             _startPosX = x;
             _startPosY = y;
             _pictureWidth = width;

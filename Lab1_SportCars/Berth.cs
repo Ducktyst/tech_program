@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -12,7 +13,12 @@ namespace WindowsFormsTransport
         /// <summary>
         /// Места для кораблей
         /// </summary>
-        private readonly T[] _places;
+        private readonly List<T> _places;
+
+        /// <summary>
+        /// Максимальное количество мест на пристани
+        /// </summary>
+        private readonly int _maxCount;
 
         /// <summary>
         /// Ширина окна отрисовки
@@ -34,75 +40,55 @@ namespace WindowsFormsTransport
         /// </summary>
         private readonly int _placeSizeHeight = 80;
 
-        public readonly int lastPlaceIndex;
-
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="picWidth"></param>
-        /// <param name="picHeight"></param>
+        /// <param name="picWidth">Рамзер причала - ширина</param>
+        /// <param name="picHeight">Рамзер причала - высота</param>
         public Berth(int picWidth, int picHeight)
         {
             int width = picWidth / _placeSizeWidth;
             int height = picHeight / _placeSizeHeight;
-            _places = new T[width * height];
+            _maxCount = width * height;
+            _places = new List<T>();
             _pictureWidth = picWidth;
             _pictureHeight = picHeight;
-            lastPlaceIndex = _places.Length - 1;
+            //lastPlaceIndex = _maxCount -1;
         }
 
         /// <summary>
         /// Перегрузка оператора сложения
-        /// Логика действия: на парковку добавляется автомобиль
+        /// Логика действия: на причал добавляется корабль
         /// </summary>
-        /// <param name="p"></param>
-        /// <param name="vehicle"></param>
+        /// <param name="p">Причал</param>
+        /// <param name="vehicle">Добавляемый корабль</param>
         /// <returns></returns>
         public static bool operator +(Berth<T> p, T vehicle)
         {
-            bool shipParked = false;
-            for (int i = 0; i < p._places.Length; i++)
-            {
-                Console.WriteLine(i);
-                if (p._places[i] == null)
-                {
-                    // количество мест в вертикальном ряду
-                    int colHeight = p._pictureHeight / p._placeSizeHeight;
-                    // количество рядов
-                    int colsCount = p._pictureWidth / p._placeSizeWidth;
-                    // номер строки (ряда) с транспортом
-                    int rowNo = i / colsCount;
-                    // номер столбца (ряда) с транспортом
-                    int colNo = i - (rowNo * colsCount);
-
-                    int positionX = colNo * p._placeSizeWidth + p._placeSizeWidth / 5;
-                    int positionY = rowNo * p._placeSizeHeight + p._placeSizeHeight / 5;
-
-                    
-                    vehicle.SetPosition(positionX, positionY, p._placeSizeWidth, p._placeSizeHeight);
-                    p._places[i] = vehicle;
-                    shipParked = true;
-                    break;
-                }
+            if (p._places.Count >= p._maxCount) {
+                return false;
             }
-            return shipParked;
+
+            p._places.Add(vehicle);
+            return true;
         }
 
         /// <summary>
         /// Перегрузка оператора вычитания
-        /// Логика действия: с парковки забираем автомобиль
+        /// Логика действия: с причала забираем корабль
         /// </summary>
         /// <param name="p">Парковка</param>
         /// <param name="index">Индекс места, с которого пытаемся извлечь объект</param>
         /// <returns></returns>
         public static T operator -(Berth<T> p, int index)
         {
-            if (index < 0 || index > p._places.Length)
+            if (index < 0 || index > p._places.Count)
             {
                 return null;
             }
+
             T ship = p._places[index];
-            p._places[index] = null;
+            p._places.RemoveAt(index);
             return ship;
         }
 
@@ -113,8 +99,18 @@ namespace WindowsFormsTransport
         public void Draw(Graphics g)
         {
             DrawBerth(g);
-            for (int i = 0; i < _places.Length; i++)
+            for (int i = 0; i < _places.Count; i++)
             {
+                int colsCount = _pictureWidth / _placeSizeWidth;
+                int colHeight = _pictureHeight / _placeSizeHeight; // кол-во мест в столбце
+                int vehicleX = 15 + i / colHeight * _placeSizeWidth;
+                int vehicleY = 10 + i % colHeight * _placeSizeHeight;
+                if (vehicleX < 0 || vehicleY < 0 || vehicleX + _placeSizeWidth > _pictureWidth || vehicleY + _placeSizeHeight > _pictureHeight)
+                {
+                    throw new Exception("Элемент выходит за границы окна");
+                }
+
+                _places[i].SetPosition(vehicleX, vehicleY, _pictureWidth, _pictureHeight);
                 _places[i]?.DrawTransport(g);
             }
         }
@@ -125,7 +121,7 @@ namespace WindowsFormsTransport
         private void DrawBerth(Graphics g)
         {
             Pen pen = new Pen(Color.Black, 3);
-            
+
             for (int i = 0; i < _pictureWidth / _placeSizeWidth; i++)
                 {
                     for (int j = 0; j < _pictureHeight / _placeSizeHeight + 1; ++j)

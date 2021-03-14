@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BerthCollection.cs" />
     <Compile Include="Cruiser.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="FormBerth.cs">
