@@ -55,6 +55,12 @@
     <Compile Include="FormBerth.Designer.cs">
       <DependentUpon>FormBerth.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormShipConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShipConfig.Designer.cs">
+      <DependentUpon>FormShipConfig.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormShip.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormShip.resx">
       <DependentUpon>FormShip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShipConfig.resx">
+      <DependentUpon>FormShipConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -107,6 +116,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\upArrow.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Последовательность действий.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

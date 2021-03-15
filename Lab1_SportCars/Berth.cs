@@ -82,7 +82,7 @@ namespace WindowsFormsTransport
         /// <returns></returns>
         public static T operator -(Berth<T> p, int index)
         {
-            if (index < 0 || index > p._places.Count)
+            if (index < 0 || index >= p._places.Count)
             {
                 return null;
             }
