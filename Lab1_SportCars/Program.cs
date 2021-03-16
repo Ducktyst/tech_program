@@ -3,6 +3,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsTransport
 {
+    public delegate void ShipDelegate(Vehicle ship);
     static class Program
     {
         /// <summary>
