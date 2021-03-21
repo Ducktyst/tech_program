@@ -172,9 +172,35 @@ namespace WindowsFormsTransport
             }
         }
 
+        /// <summary>
+        /// Обработка нажатия кнопки "Добавить корабль"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAddVehicle_Click(object sender, EventArgs e)
         {
+            // TODO: Проверка наличия причала со свободным местом
+            var formShipConfig = new FormShipConfig();
+            formShipConfig.AddEvent(AddShip);
+            formShipConfig.Show();
+        }
 
+        /// <summary>
+        /// Метод добавления корабля
+        /// </summary>
+        /// <param name="ship"></param>
+        private void AddShip(Vehicle ship)
+        {
+            if (ship != null && listBoxBerths.SelectedIndex > -1)
+            {
+                if ((_BerthCollection[listBoxBerths.SelectedItem.ToString()]) + ship)
+                {
+                    Draw();
+                } else
+                {
+                    MessageBox.Show("Корабль не удалось добавить");
+                }
+            }
         }
     }
 }

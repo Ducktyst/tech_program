@@ -44,5 +44,7 @@ namespace WindowsFormsTransport
         public abstract void MoveTransport(Direction direction);
 
         public void SetMainColor(Color color) => MainColor = color;
+
+        virtual public void SetDopColor(Color color) {}
     }
 }
