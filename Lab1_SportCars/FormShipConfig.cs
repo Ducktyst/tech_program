@@ -59,8 +59,7 @@ namespace WindowsFormsTransport
         /// <param name="e"></param>
         private void LabelObject_MouseDown(object sender, MouseEventArgs e)
         {
-            (sender as Label).DoDragDrop((sender as Label).Name,
-            DragDropEffects.Move | DragDropEffects.Copy);
+            (sender as Label).DoDragDrop((sender as Label).Name, DragDropEffects.Move | DragDropEffects.Copy);
         }
 
         /// Проверка получаемой информации (ее типа на соответствие требуемому)
@@ -69,6 +68,8 @@ namespace WindowsFormsTransport
         /// <param name="e"></param>
         private void PanelShip_DragEnter(object sender, DragEventArgs e)
         {
+            Console.WriteLine("PanelShip_DragEnter", e.Data.GetDataPresent(DataFormats.Text));
+
             if (e.Data.GetDataPresent(DataFormats.Text))
             {
                 e.Effect = DragDropEffects.Copy;
@@ -109,16 +110,26 @@ namespace WindowsFormsTransport
         /// <param name="e"></param>
         private void PanelColor_MouseDown(object sender, MouseEventArgs e)
         {
-            // Прописать логику вызова dragDrop для панелей, используя sender
-        }
+            (sender as Panel).DoDragDrop((sender as Panel).BackColor, DragDropEffects.Move | DragDropEffects.Copy);
+         }
         /// <summary>
         /// Проверка получаемой информации (ее типа на соответствие требуемому)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void LabelBaseColor_DragEnter(object sender, DragEventArgs e)
+        private void LabelColor_DragEnter(object sender, DragEventArgs e)
         {
-            // Прописать логику проверки приходящего значения на тип Color
+                Color color = (Color)e.Data.GetData(e.Data.GetFormats()[0]);
+
+            if (color != null)
+            {
+                Console.WriteLine(color != null);
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
         }
         /// <summary>
         /// Принимаем основной цвет
@@ -127,7 +138,13 @@ namespace WindowsFormsTransport
         /// <param name="e"></param>
         private void LabelBaseColor_DragDrop(object sender, DragEventArgs e)
         {
-            // Прописать логику смены базового цвета
+            Color color = (Color)e.Data.GetData(typeof(Color));
+
+            if (color != null)
+            {
+                _ship.SetMainColor(color);
+                DrawShip();
+            }
         }
         /// <summary>
         /// Принимаем дополнительный цвет
@@ -138,6 +155,17 @@ namespace WindowsFormsTransport
         {
             // Прописать логику смены дополнительного цвета, если объект
             // является объектом дочернего класса
+            if (_ship.GetType() != typeof(Cruiser))
+            {
+                return;
+            }
+
+            Color color = (Color)e.Data.GetData(typeof(Color));
+            if (color != null)
+            {
+                _ship.SetDopColor(color);
+                DrawShip();
+            }
         }
 
         /// <summary>
@@ -151,10 +179,4 @@ namespace WindowsFormsTransport
             Close();
         }
     }
-
-    /*
-     * Остановился на 92 странице
-     * 
-     * Пропустил чтение текста про LabelBaseColor_DragEnter и другие методы
-     */
 }

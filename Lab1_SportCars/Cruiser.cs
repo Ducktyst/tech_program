@@ -120,7 +120,10 @@ namespace WindowsFormsTransport
                 g.DrawRectangle(pen, helicopterX, helicopterY, helicopterDiameter, helicopterDiameter);
 
                 Brush blackBrush = new SolidBrush(Color.Black);
-                g.DrawString("H", new Font(FontFamily.GenericSansSerif, 12.0F, FontStyle.Bold), blackBrush, helicopterX, helicopterY);
+                float fontSize = 14.0F;
+                float textX = helicopterX + (helicopterDiameter - fontSize) / 3;
+                float textY = helicopterX + (helicopterDiameter - fontSize) / 2;
+                g.DrawString("H", new Font(FontFamily.GenericSansSerif, fontSize, FontStyle.Bold), blackBrush, textX, textY);
             }
 
         }
@@ -129,6 +132,6 @@ namespace WindowsFormsTransport
         /// Смена дополнительного цвета
         /// </summary>
         /// <param name="color"></param>
-        public void SetDopColor(Color color) => DopColor = color;
+        override public void SetDopColor(Color color) => DopColor = color;
     }
 }

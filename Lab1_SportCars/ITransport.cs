@@ -29,5 +29,11 @@ namespace WindowsFormsTransport
         /// </summary>
         /// <param name="color"></param>
         void SetMainColor(Color color);
+
+        /// <summary>
+        /// Смена дополнительного цвета
+        /// </summary>
+        /// <param name="color"></param>
+        void SetDopColor(Color color);
     }
 }

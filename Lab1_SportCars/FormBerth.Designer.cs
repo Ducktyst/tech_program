@@ -30,8 +30,6 @@ namespace WindowsFormsTransport
         private void InitializeComponent()
         {
             this.pictureBoxBerth = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,26 +54,6 @@ namespace WindowsFormsTransport
             this.pictureBoxBerth.TabIndex = 0;
             this.pictureBoxBerth.TabStop = false;
             this.pictureBoxBerth.UseWaitCursor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(686, 234);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Пришвартовать корабль";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.ButtonSetShip_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(686, 263);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 24);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Пришвартовать крейсер";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.ButtonSetCruiser_Click);
             // 
             // groupBox1
             // 
@@ -150,6 +128,7 @@ namespace WindowsFormsTransport
             this.textBoxNewLevelName.Name = "textBoxNewLevelName";
             this.textBoxNewLevelName.Size = new System.Drawing.Size(148, 20);
             this.textBoxNewLevelName.TabIndex = 7;
+            this.textBoxNewLevelName.Text = "Причал 1";
             // 
             // label2
             // 
@@ -162,7 +141,7 @@ namespace WindowsFormsTransport
             // 
             // buttonAddVehicle
             // 
-            this.buttonAddVehicle.Location = new System.Drawing.Point(686, 293);
+            this.buttonAddVehicle.Location = new System.Drawing.Point(686, 252);
             this.buttonAddVehicle.Name = "buttonAddVehicle";
             this.buttonAddVehicle.Size = new System.Drawing.Size(148, 23);
             this.buttonAddVehicle.TabIndex = 9;
@@ -182,8 +161,6 @@ namespace WindowsFormsTransport
             this.Controls.Add(this.addBerthButton);
             this.Controls.Add(this.listBoxBerths);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBoxBerth);
             this.Name = "FormBerth";
             this.Text = "Пристань";
@@ -198,8 +175,6 @@ namespace WindowsFormsTransport
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxBerth;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxPlace;
