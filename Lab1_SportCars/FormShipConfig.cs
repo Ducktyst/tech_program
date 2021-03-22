@@ -119,8 +119,12 @@ namespace WindowsFormsTransport
         /// <param name="e"></param>
         private void LabelColor_DragEnter(object sender, DragEventArgs e)
         {
-                Color color = (Color)e.Data.GetData(e.Data.GetFormats()[0]);
+            if (!e.Data.GetDataPresent((e.Data.GetFormats()[0])))
+            {
+                return;
+            }
 
+            Color color = (Color)e.Data.GetData(e.Data.GetFormats()[0]);
             if (color != null)
             {
                 Console.WriteLine(color != null);
@@ -140,6 +144,11 @@ namespace WindowsFormsTransport
         {
             Color color = (Color)e.Data.GetData(typeof(Color));
 
+            if (_ship == null)
+            {
+                return;
+            }
+
             if (color != null)
             {
                 _ship.SetMainColor(color);
@@ -155,6 +164,11 @@ namespace WindowsFormsTransport
         {
             // Прописать логику смены дополнительного цвета, если объект
             // является объектом дочернего класса
+            if (_ship == null)
+            {
+                return;
+            }
+
             if (_ship.GetType() != typeof(Cruiser))
             {
                 return;

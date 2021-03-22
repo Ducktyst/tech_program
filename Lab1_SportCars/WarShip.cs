@@ -22,6 +22,11 @@ namespace WindowsFormsTransport
         protected float sideLength;
 
         /// <summary>
+        /// Разделитель для записи информации по объекту в файл
+        /// </summary>
+        protected readonly char _separator = ';';
+
+        /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="maxSpeed">Максимальная скорость</param>
@@ -51,6 +56,23 @@ namespace WindowsFormsTransport
             _shipWidth = shipWidth;
             _shipHeight = shipHeight;
         }
+
+        /// <summary>
+        /// Конструктор для загрузки с файла
+        /// </summary>
+        /// <param name="info">Информация по объекту</param>
+        public WarShip(string info)
+        {
+            string[] strs = info.Split(_separator);
+            if (strs.Length >= 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                // TODO: _shipHeight, _shipWidth
+            }
+        }
+
         public override void MoveTransport(Direction direction)
         {
             if (!_pictureWidth.HasValue || !_pictureHeight.HasValue)
@@ -159,5 +181,7 @@ namespace WindowsFormsTransport
             float lowerRudderY = _startPosY.Value + _shipHeight / 2 + 3;
             g.FillRectangle(blackBrush, lowerRudderX, lowerRudderY, upperRudderWidth, upperRudderHeight);
         }
+
+        public override string ToString() => $"{MaxSpeed}{_separator}{Weight}{_separator}{MainColor.Name}";
     }
 }

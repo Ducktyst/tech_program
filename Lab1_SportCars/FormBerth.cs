@@ -15,12 +15,12 @@ namespace WindowsFormsTransport
         /// <summary>
         /// Объект от класса-коллекции причалов
         /// </summary>
-        private readonly BerthCollection _BerthCollection;
+        private readonly BerthCollection _berthCollection;
 
         public FormBerth()
         {
             InitializeComponent();
-            _BerthCollection = new BerthCollection(pictureBoxBerth.Width, pictureBoxBerth.Height);
+            _berthCollection = new BerthCollection(pictureBoxBerth.Width, pictureBoxBerth.Height);
             Draw();
         }
 
@@ -31,9 +31,9 @@ namespace WindowsFormsTransport
         {
             int index = listBoxBerths.SelectedIndex;
             listBoxBerths.Items.Clear();
-            for (int i = 0; i < _BerthCollection.Keys.Count; i++)
+            for (int i = 0; i < _berthCollection.Keys.Count; i++)
             {
-                listBoxBerths.Items.Add(_BerthCollection.Keys[i]);
+                listBoxBerths.Items.Add(_berthCollection.Keys[i]);
             }
             if (listBoxBerths.Items.Count > 0 && (index == -1 || index >= listBoxBerths.Items.Count))
             {
@@ -55,7 +55,7 @@ namespace WindowsFormsTransport
                 // элементу listBox)
                 Bitmap bmp = new Bitmap(pictureBoxBerth.Width, pictureBoxBerth.Height);
                 Graphics gr = Graphics.FromImage(bmp);
-                _BerthCollection[listBoxBerths.SelectedItem.ToString()].Draw(gr);
+                _berthCollection[listBoxBerths.SelectedItem.ToString()].Draw(gr);
                 pictureBoxBerth.Image = bmp;
             }
         }
@@ -71,7 +71,7 @@ namespace WindowsFormsTransport
                 MessageBox.Show("Введите название причала", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            _BerthCollection.AddBerth(textBoxNewLevelName.Text);
+            _berthCollection.AddBerth(textBoxNewLevelName.Text);
             ReloadLevels();
         }
 
@@ -84,9 +84,9 @@ namespace WindowsFormsTransport
         {
             if (listBoxBerths.SelectedIndex > -1)
             {
-                if (MessageBox.Show($"Удалить причал {listBoxBerths.SelectedItem}?", "Удаление", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show($"Удалить причал {listBoxBerths.SelectedItem}?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    _BerthCollection.DelBerth(listBoxBerths.SelectedItem.ToString());
+                    _berthCollection.DelBerth(listBoxBerths.SelectedItem.ToString());
                     ReloadLevels();
                 }
             }
@@ -131,7 +131,7 @@ namespace WindowsFormsTransport
         {
             if (maskedTextBoxPlace.Text != "")
             {
-                var ship = _BerthCollection[listBoxBerths.SelectedItem.ToString()] - Convert.ToInt32(maskedTextBoxPlace.Text);
+                var ship = _berthCollection[listBoxBerths.SelectedItem.ToString()] - Convert.ToInt32(maskedTextBoxPlace.Text);
                 if (ship != null)
                 {
                     FormShip form = new FormShip();
@@ -161,7 +161,7 @@ namespace WindowsFormsTransport
         {
             if (listBoxBerths.SelectedIndex > -1)
             {
-                if (_BerthCollection[listBoxBerths.SelectedItem.ToString()] + vehicle)
+                if (_berthCollection[listBoxBerths.SelectedItem.ToString()] + vehicle)
                 {
                     Draw();
                 }
@@ -193,14 +193,70 @@ namespace WindowsFormsTransport
         {
             if (ship != null && listBoxBerths.SelectedIndex > -1)
             {
-                if ((_BerthCollection[listBoxBerths.SelectedItem.ToString()]) + ship)
+                if ((_berthCollection[listBoxBerths.SelectedItem.ToString()]) + ship)
                 {
                     Draw();
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Корабль не удалось добавить");
                 }
             }
+        }
+
+        /// <summary>
+        /// Обработка нажатия пункта меню "Сохранить"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void СохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (_berthCollection.SaveData(saveFileDialog.FileName))
+                {
+                    MessageBox.Show("Сохранение прошло успешно",
+                    "Результат", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не сохранилось", "Результат",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        /// <summary>
+        /// Обработка нажатия пункта меню "Загрузить"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ЗагрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (_berthCollection.LoadData(openFileDialog.FileName))
+                {
+                    MessageBox.Show("Загрузили", "Результат",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ReloadLevels();
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Не загрузили", "Результат",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

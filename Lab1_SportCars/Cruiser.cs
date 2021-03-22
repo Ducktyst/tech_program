@@ -6,7 +6,7 @@ namespace WindowsFormsTransport
     public class Cruiser : WarShip
     {
         public Color DopColor { private set; get; }
-       
+
         public bool IsWithGuns { private set; get; }
         /// <summary>
         /// Признак наличия вертолетной площадки
@@ -16,8 +16,6 @@ namespace WindowsFormsTransport
 
         public Cruiser(int maxSpeed, float weight, Color mainColor, Color dopColor, bool isWithGuns, bool isWithHrlicopter) : base(maxSpeed, weight, mainColor, 100, 60)
         {
-
-            // Для крейсера добавить вертолетную прощадку и пушки
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
@@ -40,6 +38,24 @@ namespace WindowsFormsTransport
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
+        }
+
+        /// <summary>
+        /// Конструктор для загрузки с файла
+        /// </summary>
+        /// <param name="info"></param>
+        public Cruiser(string info) : base(info)
+        {
+            string[] strs = info.Split(_separator);
+            if (strs.Length == 6)
+            {
+                DopColor = Color.FromName(strs[3]);
+                IsWithGuns = Convert.ToBoolean(strs[4]);
+                IsWithHelicopter = Convert.ToBoolean(strs[5]);
+            } else
+            {
+                // throw new Exception("Неверное количество записей для создания Cruiser");
+            }
         }
 
         /// <summary>
@@ -133,5 +149,7 @@ namespace WindowsFormsTransport
         /// </summary>
         /// <param name="color"></param>
         override public void SetDopColor(Color color) => DopColor = color;
+
+        public override string ToString() => $"{base.ToString()}{_separator}{DopColor.Name}{_separator}{IsWithGuns}{_separator}{IsWithHelicopter}";
     }
 }

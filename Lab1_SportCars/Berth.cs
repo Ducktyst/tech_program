@@ -65,7 +65,8 @@ namespace WindowsFormsTransport
         /// <returns></returns>
         public static bool operator +(Berth<T> p, T vehicle)
         {
-            if (p._places.Count >= p._maxCount) {
+            if (p._places.Count >= p._maxCount)
+            {
                 return false;
             }
 
@@ -101,6 +102,10 @@ namespace WindowsFormsTransport
             DrawBerth(g);
             for (int i = 0; i < _places.Count; i++)
             {
+                if (_places[i] == null)
+                {
+                    continue;
+                }
                 int colsCount = _pictureWidth / _placeSizeWidth;
                 int colHeight = _pictureHeight / _placeSizeHeight; // кол-во мест в столбце
                 int vehicleX = 15 + i / colHeight * _placeSizeWidth;
@@ -123,27 +128,39 @@ namespace WindowsFormsTransport
             Pen pen = new Pen(Color.Black, 3);
 
             for (int i = 0; i < _pictureWidth / _placeSizeWidth; i++)
+            {
+                for (int j = 0; j < _pictureHeight / _placeSizeHeight + 1; ++j)
                 {
-                    for (int j = 0; j < _pictureHeight / _placeSizeHeight + 1; ++j)
-                    {
-                        //линия рамзетки места
-                        g.DrawLine(
-                            pen, 
-                            i * _placeSizeWidth,
-                            j * _placeSizeHeight, 
-                            i * _placeSizeWidth + _placeSizeWidth / 2, 
-                            j * _placeSizeHeight);
-                    }
-
-                    // вертикальная полоса
+                    //линия рамзетки места
                     g.DrawLine(
-                        pen, 
+                        pen,
                         i * _placeSizeWidth,
-                        0, 
-                        i * _placeSizeWidth, 
-                        (_pictureHeight / _placeSizeHeight) * _placeSizeHeight);
+                        j * _placeSizeHeight,
+                        i * _placeSizeWidth + _placeSizeWidth / 2,
+                        j * _placeSizeHeight);
                 }
+
+                // вертикальная полоса
+                g.DrawLine(
+                    pen,
+                    i * _placeSizeWidth,
+                    0,
+                    i * _placeSizeWidth,
+                    (_pictureHeight / _placeSizeHeight) * _placeSizeHeight);
             }
+        }
+
+        /// <summary>
+        /// Функция получения элементов из списка
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<T> GetNext()
+        {
+            foreach (var elem in _places)
+            {
+                yield return elem;
+            }
+        }
     }
 }
 
