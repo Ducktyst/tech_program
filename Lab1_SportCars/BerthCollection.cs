@@ -142,32 +142,28 @@ namespace WindowsFormsTransport
 			{
 				return false;
 			}
-			// открываем файл для записи и ассоциируем с ним поток
-			FileStream stream = File.Open(filename, FileMode.Open, FileAccess.Read);
 
-			// если файл открыт
-			if (stream == null)
+			using (StreamReader reader = new StreamReader(filename))
 			{
-				return false;
-			}
-
-/*			using (StreamReader reader = new StreamReader(stream)) 
-			{
-				if (!reader.ReadLine().Contains("BerthCollection"))
+				string line = reader.ReadLine();
+				if (line == null)
+				{
+					return false;
+				}
+				if (!line.Contains("BerthCollection"))
 				{
 					//если нет такой записи, то это не те данные
 					return false;
 				}
 
-				string line;
+				//очищаем записи
+				_berthStages.Clear();
+				Vehicle ship = null;
+				string key = string.Empty;
+
 
 				while ((line = reader.ReadLine()) != null)
 				{
-					//очищаем записи
-					_berthStages.Clear();
-					Vehicle ship = null;
-					string key = string.Empty;
-
 					//идем по считанным записям
 					if (line.Contains("Berth"))
 					{
@@ -193,58 +189,9 @@ namespace WindowsFormsTransport
 					}
 				}
 
-				stream.Close();
 				return true;
-			}*/
-
-			StreamReader reader = new StreamReader(stream);
-			string line = reader.ReadLine();
-			if (line == null)
-			{
-				return false;
 			}
-			if (!line.Contains("BerthCollection"))
-			{
-				//если нет такой записи, то это не те данные
-				return false;
-			}
-
-			//очищаем записи
-			_berthStages.Clear();
-			Vehicle ship = null;
-			string key = string.Empty;
-
-			
-			while ((line = reader.ReadLine()) != null)
-			{
-				//идем по считанным записям
-				if (line.Contains("Berth"))
-				{
-					//начинаем новую парковку
-					key = line.Split(separator)[1];
-					_berthStages.Add(key, new Berth<Vehicle>(_pictureWidth, _pictureHeight));
-					continue;
-				}
-
-				if (line.Split(separator)[0] == "WarShip")
-				{
-					ship = new WarShip(line.Split(separator)[1]);
-				}
-				else if (line.Split(separator)[0] == "Cruiser")
-				{
-					ship = new Cruiser(line.Split(separator)[1]);
-				}
-
-				var result = _berthStages[key] + ship;
-				if (!result)
-				{
-					return false;
-				}
-			}
-
-			stream.Close();
-			reader.Close();
-			return true;
+			return false;
 		}
 	}
 }
